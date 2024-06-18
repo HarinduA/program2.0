@@ -1,33 +1,39 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
-namespace HelloWorld
-{
-  class Program
-  {
-    static void Main(string[] args)
+namespace MethodOverloarding {
+    public class Program
     {
-      Console.WriteLine("Welcome to the OOP Example Program!");
+        public static void Main()
+        {
+            Calculator calculator = new Calculator();
 
-      Console.Write("Enter your name: "); 
-      string name = Console.ReadLine();
+            // Using the Add method for integers
+            int intSum = calculator.Add(5, 10);
+            Console.WriteLine("Sum of two integers: " + intSum); // Output: 15
 
-      string greetingMessage = "Hello, " + name + "!"; 
-      Console.WriteLine(greetingMessage);
+            // Using the Add method for three integers
+            int intTripleSum = calculator.Add(5, 10, 15);
+            Console.WriteLine("Sum of three integers: " + intTripleSum); // Output: 30
 
-      Console.Write("Enter number 1: "); 
-      int num1 = int.Parse(Console.ReadLine());
+            // Using the Add method for doubles
+            double doubleSum = calculator.Add(5.5, 10.2);
+            Console.WriteLine("Sum of two doubles: " + doubleSum); // Output: 15.7
 
-      Console.Write("Enter number 2 : "); 
-      int num2 = int.Parse(Console.ReadLine());
-
-
-
-      int a = num1; 
-      int b = num2; 
-      int sum = a + b; 
-      Console.WriteLine("The sum of " + a + " and " + b + " is: " + sum);
+            // Using the Add method for strings (concatenation)
+            string concatenatedString = calculator.Add("Hello, ", "World!");
+            Console.WriteLine("Concatenated string: " + concatenatedString); // Output: Hello, World!
 
 
+            Test myAnimal = new Test();  // Create a Animal object
+            Test myPig = new Test();  // Create a Pig object
+            Test myDog = new Test();  // Create a Dog object
+
+            myAnimal.animalSound();
+            myPig.animalSound();
+            myDog.animalSound();
+        }
     }
-  }
+
 }
+
